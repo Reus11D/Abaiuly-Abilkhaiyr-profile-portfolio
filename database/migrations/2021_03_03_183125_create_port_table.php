@@ -20,7 +20,7 @@ class CreatePortTable extends Migration
             $table->timestamps();
         });
     }
-
+//
     /**
      * Reverse the migrations.
      *
