@@ -28,5 +28,5 @@ Route::get('port/add', function(){
 
 Route::get('port', function(){
     $port = Post::find(1);
-    return $port->title;
+    return $port;
 });
