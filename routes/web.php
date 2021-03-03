@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
+use App\Models\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
+});
+
+Route::get('port/add', function(){
+   DB::table('port')->insert([
+     'title' => 'Laravel8',
+     'body' => 'Tag'
+   ]);
+});
+
+Route::get('port', function(){
+    $port = Post::find(1);
+    return $port->title;
 });
