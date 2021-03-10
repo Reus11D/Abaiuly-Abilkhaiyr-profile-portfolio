@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Abaiuly-Abilkhaiyr-profile-portfolio
 This website is portfolio. First page of website is about myself, second page is about skills, third page about contact
 
