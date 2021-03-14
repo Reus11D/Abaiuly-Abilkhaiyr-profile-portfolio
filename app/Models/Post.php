@@ -10,5 +10,6 @@ class Post extends Model
     use HasFactory;
 
     protected $table = "port";
+    protected $fillable = ['title', 'body'];
 }
 

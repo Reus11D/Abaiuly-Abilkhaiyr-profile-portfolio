@@ -30,3 +30,9 @@ Route::get('port/add', function(){
 });
 
 Route::get('port', [BlogController::class, 'index']);
+
+Route::get('port/create', function() {
+    return view('blog.create');
+});
+
+Route::post('port/create', [BlogController::class, 'store'])->name('add-post');
