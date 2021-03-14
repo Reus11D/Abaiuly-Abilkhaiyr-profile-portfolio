@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Post;
+
+use App\Http\Controllers\BlogController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,7 +29,4 @@ Route::get('port/add', function(){
    ]);
 });
 
-Route::get('port', function(){
-    $port = Post::find(1);
-    return $port;
-});
+Route::get('port', [BlogController::class, 'index']);
