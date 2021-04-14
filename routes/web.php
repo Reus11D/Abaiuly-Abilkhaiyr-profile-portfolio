@@ -4,8 +4,11 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Post;
+use App\Mail\DemoEmail;
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +41,31 @@ Route::get('port/create', function() {
 Route::post('port/create', [BlogController::class, 'store'])->name('add-post');
 
 Route::get('port/{id}', [BlogController::class, 'get_post']);
+
+//------------------------------------------Lab work 8 (email sending functionality)
+
+Route::get('/contact-us', [ContactController::class, 'contact']);
+Route::post('/contact-us', [ContactController::class, 'contactSubmit'])->name('contact.submit');
+
+
+//------------------------------------------Lab work 9 
+Route::get('/index', function () {
+  return view('index');
+});
+
+Route::get('locale/{locale}', [MainController::class, 'changeLocale'])->name('locale');
+Route::middleware(['set_locale'])->group(function (){
+  Route::get('/', function () {
+    return view('index');
+});
+Route::get('/home', function () {
+    return view('index');
+});
+Route::get('/skills', function () {
+    return view('skills');
+});
+Route::get('/contacts', function () {
+    return view('contacts');
+});
+
+});
